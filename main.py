@@ -3,15 +3,15 @@ import pandas as pd
 import os 
 from io import BytesIO 
 
-st.set_page_config(page_title="Data Sweeper", layout='wide') 
+st.set_page_config(page_title="Growth Mindset Challenge - Simple Dashboard", layout='wide') 
 
 #Styling
 st.markdown(
     """
 <style>
 .stApp{
-    background-color: black;
-    color:white;
+    background-color: powderblue;
+    color:darkblue;
     }
     </style>
     """,
@@ -19,8 +19,8 @@ st.markdown(
 )
 
 #Title and Description 
-st.title("Datasweeper Sterling Integrator by Shakir Hussain") 
-st.write("Transform your files between CSV and Excel formats with built-in data cleaning and visualization creating the project for quarter 3!") 
+st.title("Growth Mindset Challenge - Simple Dashboard App") 
+st.write("Transform your files between CSV and Excel formats with built-in data cleaning and visualization.") 
 
 #File uploader 
 uploaded_files=st.file_uploader("Upload your files (accepts CSV or excel):", type=["csv","xlsx"], accept_multiple_files=(True))
@@ -29,7 +29,7 @@ if uploaded_files:
         file_ext= os.path.splitext(file.name)[-1].lower() 
 
         if file_ext== ".csv":
-            df=pd.read_csv(file)
+            df=pd.read_csv(file, encoding='latin-1')
         elif file_ext== "xlsx":
             df=pd.read_excel(file)
         else:
